@@ -4,8 +4,12 @@ const State = {};
 
 State.initial = () => {
     return Immutable.fromJS({
-        all_components = {},
-        my_components =[],
+        all_components = {
+            isFetching: false,
+            didInvalidate: false,
+            data: {}
+        },
+        my_components ={},
         filter = {}
     })
 };
