@@ -3,10 +3,10 @@
 // 	ADD_COMPONENT,
 // 	REMOVE_COMPONENT,
 // } from "../actions/index";
+import { combineReducers } from "redux-immutable";
 import State from "../../../containers/state";
-import { receiveCategory } from "../actions";
-import Immutable from require('immutable');
-const { merge } = require("immutable");
+import { merge } from "immutable";
+const Immutable = require("immutable");
 
 const initialState = State.initial();
 
@@ -20,12 +20,12 @@ function createReducer(initialState, handlers) {
 	};
 }
 
-function requestCategory(allComponentsState, action) {
+function requestCategory(allComponentsState) {
 	return merge(allComponentsState, { isFetching: true, didInvalidate: false });
 }
 
 function receiveCategory(allComponentsState, action) {
-	const receivedComponents = Immutable.fromJS(action.json.components);
+	const receivedComponents = Immutable.fromJS(action.json);
 	return merge(allComponentsState, {
 		isFetching: false,
 		didInvalidate: false,
@@ -38,6 +38,15 @@ const allComponentsReducer = createReducer(initialState.get("all_components"), {
 	RECEIVE_CATEGORY: receiveCategory,
 });
 
-export default componentsViewReducer = combineReducers({
+const myComponentsReducer = createReducer(
+	initialState.get("my_components"),
+	{}
+);
+
+const filterReducer = createReducer(initialState.get("filter"), {});
+
+export default combineReducers({
 	all_components: allComponentsReducer,
+	my_components: myComponentsReducer,
+	filter: filterReducer,
 });

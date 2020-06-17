@@ -5,12 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "../components/App";
 import componentsRoutes from "../features/components-view/routes";
 
-
 const Root = ({ store }) => (
 	<Provider store={store}>
 		<Router>
 			<Switch>
-				<Route path='/' exact component={App}>
+				<Route path='/' exact comp={App}>
 					{componentsRoutes}
 				</Route>
 			</Switch>

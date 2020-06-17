@@ -4,7 +4,7 @@ import PCComponents from "./components/index";
 
 const componentsRoutes = (
 	<Route path='components' component={PCComponents}>
-		<Route path='/:componentId' component={PCComponents} />
+		{/* <Route path='/:componentId' component={PCComponents} /> */}
 	</Route>
 );
 
