@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import PCComponents from "./components/index";
+import ComponentsView from "./containers/ComponentsView";
 
 // const componentsViewRoutes = (
 // 	<Route path='components' component={PCComponents}>
@@ -9,7 +9,7 @@ import PCComponents from "./components/index";
 // );
 
 export default () => (
-	<Route path='/componentsView' component={PCComponents}>
+	<Route path='/components-view' component={ComponentsView}>
 		{/* <Route path='/:componentId' component={PCComponents} /> */}
 	</Route>
 );
