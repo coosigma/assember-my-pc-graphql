@@ -1,10 +1,10 @@
 import React from "react";
 import ImmutablePropTypes from "react-immutable-proptypes";
-import ListView from "./ListView";
+import ComponentsList from "./ComponentsList";
 
 class ComponentsView extends React.Component {
 	render() {
-		return <ListView></ListView>;
+		return <ComponentsList list={this.props.all_components} />;
 	}
 }
 
