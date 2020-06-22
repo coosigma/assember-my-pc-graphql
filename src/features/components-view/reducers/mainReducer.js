@@ -5,7 +5,7 @@
 // } from "../actions/index";
 import { combineReducers } from "redux-immutable";
 import State from "../../../containers/state";
-import { merge } from "immutable";
+import { merge, mergeDeep } from "immutable";
 const Immutable = require("immutable");
 
 const initialState = State.initial();
@@ -30,7 +30,7 @@ function requestCategory(allComponentsState, action) {
 
 function receiveCategory(allComponentsState, action) {
 	const receivedComponents = Immutable.fromJS(action.json);
-	return merge(allComponentsState, {
+	return mergeDeep(allComponentsState, {
 		isFetching: false,
 		didInvalidate: false,
 		data: receivedComponents,

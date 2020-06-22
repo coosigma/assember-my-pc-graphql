@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ComponentsView from "../components/ComponentsView";
-import { ACTIONS } from "../actions/index";
+import { ACTIONS } from "../actions/mainAction";
 
 function allComponentsToComponentsList(state) {
 	const rawData = state.getIn(["all_components", "data"]);
