@@ -1,10 +1,22 @@
 import React from "react";
 import ImmutablePropTypes from "react-immutable-proptypes";
+import ComponentsSelector from "./ComponentsSelector";
 import ComponentsList from "./ComponentsList";
 
 class ComponentsView extends React.Component {
 	render() {
-		return <ComponentsList list={this.props.all_components} />;
+		return (
+			<React.Fragment>
+				<ComponentsSelector
+					moduleState={this.props.all_components}
+					onButtonClick={this.props.onButtonClick}
+				/>
+				<ComponentsList
+					moduleState={this.props.all_components}
+					list={this.props.list}
+				/>
+			</React.Fragment>
+		);
 	}
 }
 
@@ -14,6 +26,8 @@ ComponentsView.protoTypes = {
 		didInvalidate: Boolean.isRequired,
 		data: ImmutablePropTypes.map.isRequired,
 	}),
+	onButtonClick: Function,
+	list: Array,
 };
 
 export default ComponentsView;

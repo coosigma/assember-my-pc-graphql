@@ -22,7 +22,7 @@ export function removeComponent(id) {
 }
 
 export const ACTIONS = {
-	REQUEST_CATEGORY: receiveCategory,
+	REQUEST_CATEGORY: requestCategory,
 	RECEIVE_CATEGORY: receiveCategory,
 	ADD_COMPONENT: addComponent,
 	REMOVE_COMPONENT: removeComponent,

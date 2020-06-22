@@ -20,8 +20,12 @@ function createReducer(initialState, handlers) {
 	};
 }
 
-function requestCategory(allComponentsState) {
-	return merge(allComponentsState, { isFetching: true, didInvalidate: false });
+function requestCategory(allComponentsState, action) {
+	return merge(allComponentsState, {
+		isFetching: true,
+		didInvalidate: false,
+		currentCategory: action.name,
+	});
 }
 
 function receiveCategory(allComponentsState, action) {

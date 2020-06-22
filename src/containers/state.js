@@ -7,6 +7,7 @@ State.initial = () => {
 		all_components: {
 			isFetching: false,
 			didInvalidate: false,
+			currentCategory: "",
 			data: {},
 		},
 		my_components: {},

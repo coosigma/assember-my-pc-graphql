@@ -1,5 +1,6 @@
 import React from "react";
 import ImmutablePropTypes from "react-immutable-proptypes";
+import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 
 const TableDiv = styled.div`
@@ -27,12 +28,18 @@ class ComponentsList extends React.Component {
 									</tr>
 								</thead>
 								<tbody>
-									{this.props.list.data &&
-										this.props.list.data.valueSeq().map((row, index) => {
+									{this.props.list &&
+										this.props.list.map((row, index) => {
 											return (
 												<tr key={index}>
-													{row.map((cell, index) => {
-														return <td>{cell}</td>;
+													<td>
+														<Form.Check
+															type='radio'
+															aria-label='list-selector'
+														/>
+													</td>
+													{Array.from(row.keys()).map((key) => {
+														return <td key={key}>{row.get(key)}</td>;
 													})}
 												</tr>
 											);
@@ -51,7 +58,8 @@ ComponentsList.protoTypes = {
 	all_components: ImmutablePropTypes.contains({
 		isFetching: Boolean.isRequired,
 		didInvalidate: Boolean.isRequired,
-		data: ImmutablePropTypes.map.isRequired,
+		currentCategory: String.isRequired,
+		list: Array.isRequired,
 	}),
 };
 
