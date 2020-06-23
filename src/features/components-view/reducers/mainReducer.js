@@ -19,7 +19,6 @@ function requestCategory(allComponentsState, action) {
 	return merge(allComponentsState, {
 		isFetching: true,
 		didInvalidate: false,
-		currentCategory: action.name,
 	});
 }
 
@@ -32,20 +31,29 @@ function receiveCategory(allComponentsState, action) {
 	});
 }
 
-const allComponentsReducer = createReducer(initialState.get("all_components"), {
+const allComponentsReducer = createReducer(initialState.get("allComponents"), {
 	REQUEST_CATEGORY: requestCategory,
 	RECEIVE_CATEGORY: receiveCategory,
 });
 
-const myComponentsReducer = createReducer(
-	initialState.get("my_components"),
-	{}
+function setCurrentCategory(currentCategoryState, action) {
+	return action.value;
+}
+
+const currentCategoryReducer = createReducer(
+	initialState.get("currentCategory"),
+	{
+		SET_CURRENT_CATEGORY: setCurrentCategory,
+	}
 );
+
+const myComponentsReducer = createReducer(initialState.get("myComponents"), {});
 
 const filterReducer = createReducer(initialState.get("filter"), {});
 
 export default combineReducers({
-	all_components: allComponentsReducer,
-	my_components: myComponentsReducer,
+	allComponents: allComponentsReducer,
+	currentCategory: currentCategoryReducer,
+	myComponents: myComponentsReducer,
 	filter: filterReducer,
 });

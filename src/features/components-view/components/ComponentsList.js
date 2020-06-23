@@ -1,5 +1,4 @@
 import React from "react";
-import ImmutablePropTypes from "react-immutable-proptypes";
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 
@@ -55,12 +54,7 @@ class ComponentsList extends React.Component {
 }
 
 ComponentsList.protoTypes = {
-	all_components: ImmutablePropTypes.contains({
-		isFetching: Boolean.isRequired,
-		didInvalidate: Boolean.isRequired,
-		currentCategory: String.isRequired,
-		list: Array.isRequired,
-	}),
+	list: Array.isRequired,
 };
 
 export default ComponentsList;

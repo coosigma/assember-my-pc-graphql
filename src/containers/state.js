@@ -4,13 +4,13 @@ const State = {};
 
 State.initial = () => {
 	return Immutable.fromJS({
-		all_components: {
+		allComponents: {
 			isFetching: false,
 			didInvalidate: false,
-			currentCategory: "",
 			data: {},
 		},
-		my_components: {},
+		currentCategory: "",
+		myComponents: {},
 		filter: {},
 	});
 };

@@ -8,25 +8,25 @@ class ComponentsView extends React.Component {
 		return (
 			<React.Fragment>
 				<ComponentsSelector
-					moduleState={this.props.all_components}
-					onButtonClick={this.props.onButtonClick}
+					optionGroups={this.props.selectorOptions}
+					valueGroups={this.props.selectorValues}
+					onCategoryChange={this.props.onCategoryChange}
 				/>
-				<ComponentsList
-					moduleState={this.props.all_components}
-					list={this.props.list}
-				/>
+				<ComponentsList list={this.props.list} />
 			</React.Fragment>
 		);
 	}
 }
 
 ComponentsView.protoTypes = {
-	all_components: ImmutablePropTypes.contains({
+	allComponents: ImmutablePropTypes.contains({
 		isFetching: Boolean.isRequired,
 		didInvalidate: Boolean.isRequired,
 		data: ImmutablePropTypes.map.isRequired,
 	}),
-	onButtonClick: Function,
+	selectorOptions: Object.isRequired,
+	selectorValues: Object.isRequired,
+	onCategoryChange: Function,
 	list: Array,
 };
 
