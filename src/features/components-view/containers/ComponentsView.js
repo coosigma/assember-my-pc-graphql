@@ -46,6 +46,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	onCategoryChange: (event) => {
 		const category = event.target.value;
+		if (category.includes("...") || category.match(/select/i)) {
+			dispatch(ACTIONS.SET_CURRENT_CATEGORY(""));
+			return;
+		}
 		dispatch(ACTIONS.REQUEST_CATEGORY(category));
 		dispatch(ACTIONS.SET_CURRENT_CATEGORY(category));
 	},

@@ -1,8 +1,8 @@
 export const domain = "http://localhost:9000";
 
-export function requestCategory(name) {
-	const uri = domain + "/components/" + name;
-	return { type: "REQUEST_CATEGORY", name, uri };
+export function requestCategory(category) {
+	const uri = domain + "/components/" + category;
+	return { type: "REQUEST_CATEGORY", category, uri };
 }
 
 export function receiveCategory(json) {
