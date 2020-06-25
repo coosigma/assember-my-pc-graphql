@@ -35,6 +35,9 @@ class ComponentsList extends React.Component {
 														<Form.Check
 															type='radio'
 															aria-label='list-selector'
+															onChange={(e) => {
+																console.log(e.target.value);
+															}}
 														/>
 													</td>
 													{Array.from(row.keys()).map((key) => {

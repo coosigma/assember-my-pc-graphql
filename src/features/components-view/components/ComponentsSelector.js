@@ -7,20 +7,14 @@ class ComponentsSelector extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				{/* <Button onClick={this.props.onButtonClick("CPU")}>Show CPUs</Button> */}
-				{/* <Button onClick={this.props.onButtonClick("RAM")}>Show RAMs</Button> */}
-				{/* <Picker
-					optionGroups={this.props.optionGroups}
-					valueGroups={this.props.valueGroups}
-					onChange={this.props.onCategoryChange}
-				/> */}
 				<select name='category' onChange={this.props.onCategoryChange}>
+					{/* {console.log(this.props.optionGroups.get("currentCategory"))} */}
 					{this.props.optionGroups
 						.get("currentCategory")
 						.map((option, index) => {
 							return (
-								<option key={index} value={option}>
-									{option}
+								<option key={index} value={option[0]}>
+									{option[1]}
 								</option>
 							);
 						})}

@@ -29,7 +29,14 @@ function allComponentsToComponentsList(state) {
 }
 
 const selectorOptions = new Map([
-	["currentCategory", ["(Select...)", "CPU", "RAM"]],
+	[
+		"currentCategory",
+		[
+			["", "(Select...)"],
+			["CPU", "CPU"],
+			["RAM", "RAM"],
+		],
+	],
 ]);
 
 const selectorValues = (state) => ({
@@ -46,11 +53,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	onCategoryChange: (event) => {
 		const category = event.target.value;
-		if (category.includes("...") || category.match(/select/i)) {
-			dispatch(ACTIONS.SET_CURRENT_CATEGORY(""));
-			return;
+		if (category !== "") {
+			dispatch(ACTIONS.REQUEST_CATEGORY(category));
 		}
-		dispatch(ACTIONS.REQUEST_CATEGORY(category));
 		dispatch(ACTIONS.SET_CURRENT_CATEGORY(category));
 	},
 });
