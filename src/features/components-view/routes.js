@@ -1,15 +1,11 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ComponentsView from "./containers/ComponentsView";
-
-// const componentsViewRoutes = (
-// 	<Route path='components' component={PCComponents}>
-// 		{/* <Route path='/:componentId' component={PCComponents} /> */}
-// 	</Route>
-// );
+import PCComponent from "./containers/PCComponent";
 
 export default () => (
-	<Route path='/components-view' component={ComponentsView}>
-		{/* <Route path='/:componentId' component={PCComponents} /> */}
-	</Route>
+	<Switch>
+		<Route exact path='/components-view' component={ComponentsView} />
+		<Route path='/components-view/:componentId' component={PCComponent} />
+	</Switch>
 );

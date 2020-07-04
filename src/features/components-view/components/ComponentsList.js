@@ -1,5 +1,7 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap";
 import styled from "styled-components";
 
 const TableDiv = styled.div`
@@ -16,7 +18,7 @@ class ComponentsList extends React.Component {
 					<div className='span12'>
 						<TableDiv>
 							<table
-								className='components-list table table-striped'
+								className='components-list table table-striped table-hover'
 								style={{ margin: "auto" }}>
 								<thead className='thead-dark'>
 									<tr>
@@ -24,6 +26,7 @@ class ComponentsList extends React.Component {
 										<th>Producer</th>
 										<th>Type</th>
 										<th>Price</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -41,6 +44,21 @@ class ComponentsList extends React.Component {
 														/>
 													</td>
 													{Array.from(row.keys()).map((key) => {
+														if (key === "id") {
+															return (
+																<td key={key}>
+																	<Button
+																		id={row.get(key)}
+																		onClick={(e) => {
+																			const link =
+																				"/components-view/" + e.target.id;
+																			this.props.history.push(link);
+																		}}>
+																		Details
+																	</Button>
+																</td>
+															);
+														}
 														return <td key={key}>{row.get(key)}</td>;
 													})}
 												</tr>
@@ -60,4 +78,4 @@ ComponentsList.protoTypes = {
 	list: Array.isRequired,
 };
 
-export default ComponentsList;
+export default withRouter(ComponentsList);

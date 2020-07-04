@@ -1,0 +1,86 @@
+{
+    "CPU": [
+        {
+            "field": [
+                "producer",
+                "Producer"
+            ],
+            "type": "select",
+            "options": [
+                [
+                    "Intel",
+                    "Intel"
+                ],
+                [
+                    "AMD",
+                    "AMD"
+                ]
+            ]
+        },
+        {
+            "field": [
+                "type",
+                "Type"
+            ],
+            "type": "text"
+        },
+        {
+            "field": [
+                "price",
+                "Price"
+            ],
+            "type": "range"
+        },
+        {
+            "field": [
+                "GPUIntegrated",
+                "Integrated Graphics"
+            ],
+            "type": "toggle"
+        }
+    ],
+    "RAM": [
+        {
+            "field": [
+                "producer",
+                "Producer"
+            ],
+            "type": "select",
+            "options": [
+                [
+                    "Kingston",
+                    "Kingston"
+                ],
+                [
+                    "CORSAIR",
+                    "CORSAIR"
+                ],
+                [
+                    "Samsung",
+                    "Samsung"
+                ]
+            ]
+        },
+        {
+            "field": [
+                "type",
+                "Type"
+            ],
+            "type": "text"
+        },
+        {
+            "field": [
+                "price",
+                "Price"
+            ],
+            "type": "range"
+        },
+        {
+            "field": [
+                "ECC",
+                "ECC"
+            ],
+            "type": "toggle"
+        }
+    ]
+}

@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import ComponentsView from "../components/ComponentsView";
 import { ACTIONS } from "../actions/mainAction";
+import Filter from "../filter.json";
 
 function allComponentsToComponentsList(state) {
+	// console.log(Filter);
 	const rawData = state.getIn(["allComponents", "data"]);
 	if (rawData.size === 0) {
 		return [];
@@ -23,6 +25,7 @@ function allComponentsToComponentsList(state) {
 				listItem.set(field, value);
 			}
 		}
+		listItem.set("id", item.get("_id"));
 		items.push(listItem);
 	}
 	return items;
