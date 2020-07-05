@@ -53,7 +53,7 @@ const mapStateToProps = (state) => ({
 	list: allComponentsToComponentsList(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
 	onCategoryChange: (event) => {
 		const category = event.target.value;
 		if (category !== "") {

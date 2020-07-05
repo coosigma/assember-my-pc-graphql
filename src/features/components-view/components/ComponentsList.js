@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
+import Spinner from "react-bootstrap/Spinner";
 
 const TableDiv = styled.div`
 	// background-color: red;
@@ -30,6 +31,15 @@ class ComponentsList extends React.Component {
 									</tr>
 								</thead>
 								<tbody>
+										{this.props.isFetching && (
+											<tr>
+												<td colSpan='5'>
+													<Spinner animation='border' role='status'>
+														<span className='sr-only'>Loading...</span>
+													</Spinner>
+												</td>
+											</tr>
+										)}
 									{this.props.list &&
 										this.props.list.map((row, index) => {
 											return (
@@ -75,6 +85,7 @@ class ComponentsList extends React.Component {
 }
 
 ComponentsList.protoTypes = {
+	isFetching: Boolean,
 	list: Array.isRequired,
 };
 

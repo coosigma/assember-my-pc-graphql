@@ -15,6 +15,7 @@ function* fetchCategory({ category, uri }) {
 	const components = yield select(getComponentsData);
 	const didInvalidate = yield select(getDidInvalidate);
 	if (components.get(category) && !didInvalidate) {
+		yield put({ type: "RECEIVE_CATEGORY", json: components.get(category) });
 		return;
 	}
 	let json = yield fetch(uri)
