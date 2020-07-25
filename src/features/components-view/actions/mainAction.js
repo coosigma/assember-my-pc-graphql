@@ -1,7 +1,7 @@
-export const domain = "http://localhost:9000";
+export const domain = "http://192.168.178.22:8000";
 
 export function requestCategory(category) {
-	const uri = domain + "/components/" + category;
+	const uri = domain + "/api/components/" + category;
 	return { type: "REQUEST_CATEGORY", category, uri };
 }
 
