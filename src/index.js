@@ -7,6 +7,34 @@ import generateStore from "./containers/store";
 // import * as actions from "./features/components-view/actions/index";
 import rootSaga from "./containers/rootSaga";
 
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+
+import { gql } from "@apollo/client";
+
+const client = new ApolloClient({
+	uri: "http://192.168.178.22:8000/graphql",
+	cache: new InMemoryCache(),
+});
+
+// const client = ...
+
+client
+	.query({
+		query: gql`
+			query Components {
+				components(category: "CPU") {
+					id
+					name
+					type
+					price
+					manufacturer
+					GPUIntegrated
+				}
+			}
+		`,
+	})
+	.then((result) => console.log(result));
+
 const store = generateStore();
 store.runSaga(rootSaga);
 // console.log(store.dispatch(actions.receiveCategory("CPU")));
